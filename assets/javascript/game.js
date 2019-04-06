@@ -35,7 +35,7 @@ var startGame = function () {
 
 
     // math random
-    random_Result = Math.floor(Math.random() * 69) +30;
+    random_Result = Math.floor(Math.random() * 80) +40;
 
     //console.log(random_Result);
 
@@ -56,6 +56,7 @@ var startGame = function () {
            "background-image": "url('" + images[i] + "')",
               "background-size":"cover"
          })
+    
 
             // show number
             // crystal.html(random);

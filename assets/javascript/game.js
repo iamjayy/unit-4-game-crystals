@@ -15,15 +15,16 @@ var  win = 0;
 var previous = 0;
 
 
-var resetAndStart = function () {
+var startGame = function () {
 
     $(".cyrstals").empty();
 
     var images = [
-        "assets/images/crystal1.png",
-        "assets/images/crystal2.png", 
+        "assets/images/Arena_Crystal.png",
+        "assets/images/crystal.png", 
         "assets/images/crystal3.jpeg",
         "assets/images/crystal4.jpg"]
+
 
 
     // math random
@@ -39,15 +40,17 @@ var resetAndStart = function () {
     //console.log(random);
 
     var crystal = $("<div>");
+
         crystal.attr({
             "class": 'crystal',
             
             "data-random": random
         });
-            //crystal.css ({
-            //    "background-image":"url('" + images[i] + ")",
-           //     "background-size":"cover"
-           // })
+            crystal.css ({
+                
+              "background-image":"url('images[i]')",
+             "background-size":"cover"
+            })
 
             // show number
             // crystal.html(random);
@@ -58,7 +61,8 @@ var resetAndStart = function () {
 
 }
 
-resetAndStart();
+
+startGame();
 
 //event
 $(document).on('click', ".crystal", function () {
@@ -73,15 +77,19 @@ $(document).on('click', ".crystal", function () {
 
     if(previous > random_Result) {
 
+        alert("You Lost!");
+
         lost++;
 
         $("#lost").html("lost: " + lost);
 
         previous = 0;
-
+        
     }
 
     else if(previous === random_Result){
+
+        alert("You Won!");
 
         win++;
 
@@ -89,7 +97,6 @@ $(document).on('click', ".crystal", function () {
 
         previous = 0;
 
-    
     }
 
     

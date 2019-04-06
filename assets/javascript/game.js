@@ -15,20 +15,21 @@ var  wins = 0;
 var counter = 0;
 
 
+
 var startGame = function () {
 
-    $(".cyrstals").empty();
+    $(".crystals").empty();
 
     var images = [
         "assets/images/Arena_Crystal.png",
-        "assets/images/crystal.png", 
-        "assets/images/crystal3.jpeg",
-        "assets/images/crystal4.jpg"]
+        "assets/images/crystal2.png", 
+        "assets/images/crystal3.png",
+        "assets/images/crystal4.png"]
         //loop for images
-          //  for (var i=0; i< images.length; i++) {
+        //    for (var i=0; i< images.length; i++) {
             
-          //  crystal.attr("src", images[i]);
-          //  }
+        //     crystal.attr("src", images[i]);
+        //    }
 
 
 
@@ -51,10 +52,10 @@ var startGame = function () {
             "class": 'crystal',
             "data-random": random
         });
-        // crystal.css ({
-         //    "background-image": "url'(images[i])'"
-             // "background-size":"cover"
-        // })
+         crystal.css ({
+           "background-image": "url('" + images[i] + "')",
+              "background-size":"cover"
+         })
 
             // show number
             // crystal.html(random);
@@ -66,14 +67,6 @@ var startGame = function () {
 }
 
 //function to reset game without refreshing page
-function resetGame() {
-    $('.crystal').empty();
-    $('#counter').html("Total Score :" + 0);
-    $("#wins").html("wins: " + wins);
-    $("#lost").html("lost: " + lost);
-    random = Math.floor(Math.random() * 69) +30;;
-    random_Result = Math.floor(Math.random() * 69) +30;
-}
 
 
 
@@ -100,7 +93,8 @@ $(document).on('click', ".crystal", function () {
 
         counter = 0;
         
-        resetGame();
+        //resetGame();
+        startGame()
 
     }
 
@@ -114,7 +108,8 @@ $(document).on('click', ".crystal", function () {
 
         counter = 0;
 
-        resetGame();
+        //resetGame();
+        startGame()
 
 
     }

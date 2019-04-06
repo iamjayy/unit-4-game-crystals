@@ -12,7 +12,6 @@
     float: left;
     border-radius: 4px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    background-image:"url('images[i]')";
     margin: 10px;
     transition: box-shadow 1s;
 }

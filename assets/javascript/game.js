@@ -11,8 +11,8 @@
 
 var random_Result;
 var  lost = 0;
-var  win = 0;
-var previous = 0;
+var  wins = 0;
+var counter = 0;
 
 
 var startGame = function () {
@@ -24,6 +24,12 @@ var startGame = function () {
         "assets/images/crystal.png", 
         "assets/images/crystal3.jpeg",
         "assets/images/crystal4.jpg"]
+        //loop for images
+          //  for (var i=0; i< images.length; i++) {
+            
+          //  crystal.attr("src", images[i]);
+          //  }
+
 
 
 
@@ -43,14 +49,12 @@ var startGame = function () {
 
         crystal.attr({
             "class": 'crystal',
-            
             "data-random": random
         });
-            crystal.css ({
-                
-              "background-image":"url('images[i]')",
-             "background-size":"cover"
-            })
+        // crystal.css ({
+         //    "background-image": "url'(images[i])'"
+             // "background-size":"cover"
+        // })
 
             // show number
             // crystal.html(random);
@@ -61,6 +65,17 @@ var startGame = function () {
 
 }
 
+//function to reset game without refreshing page
+function resetGame() {
+    $('.crystal').empty();
+    $('#counter').html("Total Score :" + 0);
+    $("#wins").html("wins: " + wins);
+    $("#lost").html("lost: " + lost);
+    random = Math.floor(Math.random() * 69) +30;;
+    random_Result = Math.floor(Math.random() * 69) +30;
+}
+
+
 
 startGame();
 
@@ -69,13 +84,13 @@ $(document).on('click', ".crystal", function () {
 
     var num = parseInt($(this).attr('data-random'));
 
-    previous += num;
+    counter += num;
 
-    $("#previous").html("Total Score: " + previous);
+    $("#counter").html("Total Score: " + counter);
 
-    console.log(previous);
+    console.log(counter);
 
-    if(previous > random_Result) {
+    if(counter > random_Result) {
 
         alert("You Lost!");
 
@@ -83,19 +98,24 @@ $(document).on('click', ".crystal", function () {
 
         $("#lost").html("lost: " + lost);
 
-        previous = 0;
+        counter = 0;
         
+        resetGame();
+
     }
 
-    else if(previous === random_Result){
+    else if(counter === random_Result){
 
         alert("You Won!");
 
-        win++;
+        wins++;
 
-        $("#win").html("wins: " + win);
+        $("#wins").html("wins: " + wins);
 
-        previous = 0;
+        counter = 0;
+
+        resetGame();
+
 
     }
 
